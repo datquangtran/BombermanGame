@@ -30,11 +30,13 @@ public class ItemPickup : MonoBehaviour
 
         Destroy(gameObject);
     }
-    private void OnTriggerEnter2D(Collider2D other)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (other.CompareTag("Player"))
+        if (collision.CompareTag("Player"))
         {
-            OnItemPickup(other.gameObject);
+            OnItemPickup(collision.gameObject);
+            AudioManager.instance.Play("Items");
+
         }
     }
 
